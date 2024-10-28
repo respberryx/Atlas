@@ -61,10 +61,10 @@ actions:
   - !service: {name: 'icssvc', operation: change, startup: 4} # Disables Windows Mobile Hotspot Service
   - !service: {name: 'WalletService', operation: change, startup: 4}
   - !service: {name: 'FontCache', operation: change, startup: 4} # Slows down font rendering
-  - !service: {name: 'DPS', operation: change, startup: 4} # Disables Diagnostic Policy Service; telemetry mostly.
-  - !service: {name: 'WdiServiceHost', operation: change, startup: 4} # Disables Diagnostic Service Host; telemetry mostly.
-  - !service: {name: 'WdiSystemHost', operation: change, startup: 4} # Disables Diagnostic System Host; telemetry mostly.
-
+  # Removed services above as Xyueta said that they may cause trouble
+  # https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/optimize/services (for iot but works on pro/home too)
+  - !service: {name: 'UserDataSvc', operation: change, startup: 4} # Disable since Mail/Calander is removed
+  - !service: {name: 'UnistoreSvc', operation: change, startup: 4} # Disable since Mail/Calander is removed
 
     # ------ Microsoft recommendation - 'Do not disable' -----
   - !service: {name: 'diagnosticshub.standardcollector.service', operation: change, startup: 4}
